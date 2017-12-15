@@ -10,5 +10,5 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'mblog.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-    url(r'^$', homepage)
+    # url(r'^$', homepage)
 ]

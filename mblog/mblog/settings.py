@@ -59,7 +59,7 @@ ROOT_URLCONF = 'mblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],     # 如果Templates是创建在根目录mblog下，则需要在此处添加Template的路径
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
