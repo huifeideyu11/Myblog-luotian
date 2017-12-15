@@ -6,6 +6,7 @@ from django.http import HttpResponse, Http404
 from .models import Post
 from django.template.loader import get_template
 from datetime import datetime
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
@@ -31,7 +32,10 @@ def blog_detail(request, slug):
     :param slug:用于接收从mblog.urls.py文件urlpatterns中提取的参数
     :return:
     '''
-    post = Post.objects.get(slug = slug)
+    try:
+        post = Post.objects.get(slug = slug)
+    except ObjectDoesNotExist:
+        return render(request, 'BlogDoesNotExist.html')
     if post != None:
         return render(request, 'detail_blog.html', {'post':post})
 
