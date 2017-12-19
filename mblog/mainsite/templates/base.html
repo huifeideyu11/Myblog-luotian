@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 加载bootstrap3应用、CSS和Javascript -->
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <title>{% block blog_title %} {% endblock %}</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        {% include 'header.html' %}
+        <div class="panel panel-default">
+            {% block headmessage %} {% endblock %}
+        </div>
+        <div class="panel-body">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -7,6 +7,7 @@ from .models import Post
 from django.template.loader import get_template
 from datetime import datetime
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -22,8 +23,17 @@ def homepage(request):
         定义首页：显示当前时间和博客中的内容
     '''
     posts = Post.objects.all()
+    paginator = Paginator(posts, 5)        # 每页显示5行数据
+    page = request.GET.get('page')
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        contacts = paginator.page(1)
+    except EmptyPage:
+        contacts = paginator.page(paginator.num_pages)
+
     now = datetime.now()  # 获取当前时间
-    return render(request, 'index.html', {'posts': posts, 'now': now})
+    return render(request, 'index.html', {'posts': contacts, 'now': now})
 
 def blog_detail(request, slug):
     '''
