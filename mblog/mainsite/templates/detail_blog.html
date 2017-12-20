@@ -3,20 +3,13 @@
 {% block blog_title %} 欢迎光临会飞的鱼博客！ {% endblock %}
 {% block headmessage %}
     <h3 style="font-family: 微软雅黑;">{{ post.title }}</h3>
-    <a style="font-family: 微软雅黑;" href="http://127.0.0.1:8000/homepage/">回首页</a>
 {% endblock %}
 
 {% block content %}
     <p style="font-family: 微软雅黑; font-size: 12pt; letter-spacing: 2pt;">
         {{ post.body }}
     </p>
-    <div class="panel-footer">
-    {% if now %}
-    <p style="font-family: 微软雅黑;">现在时刻：{{ now }}</p>
-    {% else %}
-    <p style="font-family: 微软雅黑;">本文内容取自网络，如有侵权请来信通知下架</p>
-    {% endif %}
-    </div>
 {% endblock %}
+{% block footer %} {% include 'footer1.html' %} {% endblock %}
 
 

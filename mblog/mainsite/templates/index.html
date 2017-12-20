@@ -11,5 +11,5 @@
                 <a href = '/post/{{post.slug}}'>{{post.title}}</a>
             </p>
     {% endfor %}
-    {% include 'footer.html' %}
 {% endblock %}
+{% block footer %} {% include 'footer.html' %} {% endblock %}

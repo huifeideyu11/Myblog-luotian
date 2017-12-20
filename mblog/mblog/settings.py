@@ -120,3 +120,6 @@ USE_TZ = False             # 设置为False时，使用django.utils.timezone.now
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]    # 添加静态文件的路径

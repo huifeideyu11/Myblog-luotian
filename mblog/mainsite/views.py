@@ -47,7 +47,8 @@ def blog_detail(request, slug):
     except ObjectDoesNotExist:
         return render(request, 'BlogDoesNotExist.html')
     if post != None:
-        return render(request, 'detail_blog.html', {'post':post})
+        now = datetime.now()  # 获取当前时间
+        return render(request, 'detail_blog.html', {'post':post, 'now':now})
 
     else:
         raise Http404
